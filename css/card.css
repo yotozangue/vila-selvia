@@ -1,0 +1,103 @@
+/* Card Configs */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.card {
+    background-color: #FFF;
+    margin: 10px 10px;
+    border-radius: 5px;
+    width: 300px;
+    height: 400px;
+}
+.card svg {
+    fill: #888;
+}
+.top-card {
+    padding: 20px;
+    padding-top: 5px;
+    padding-bottom: 0;
+    height: 70%;
+    overflow-y: hidden;
+}
+.media-card {
+    height: 175px;
+    width: 100%;
+}
+.bottom-card {
+    width: 100%;
+    margin-bottom: 5%;
+    padding: 0;
+}
+.review-score-badge {
+    background-color: green;
+    color: white;
+    padding: 5px;
+}
+.actions {
+    float: right;
+    margin-right: 10px;
+}
+.old-price {
+    font-size: 10pt;
+    color: rgb(59, 59, 59);
+}
+.price-block {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+.price {
+    color: black;
+    font-size: 24pt;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+.price sup {
+    font-size: 10pt;
+}
+.promotion {
+    font-size: 11pt;
+    color: darkslateblue;
+    margin-left: 5px;
+}
+.parcelas {
+    font-size: 12pt;
+    color: darkslateblue;
+}
+.parcelas sup {
+    font-size: 6pt;
+    margin-left: 1px;
+}
+.description-text {
+    color: #7e838a;
+}
+#suites .btn-primary {
+    width: 80%;
+    margin-left: 10%;
+    background-color: #FFF;
+    color: green;
+    border-color: green;
+    transition: 0.5s;
+}
+#suites .btn-primary:hover {
+    background-color: green;
+    color: white;
+}
+.card-container * {
+    cursor: pointer;
+}
+.card-container > *:hover {
+    box-shadow: 0px 1px 10px #2639538e;
+}
+
+
+/* Resposive */
+@media screen and (max-width: 420px) {
+    .card-container > * {
+        width: 100%;
+    }
+}
