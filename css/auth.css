@@ -1,9 +1,0 @@
-body{
-    background-image: linear-gradient(to right, #298121, #194c1b);
-}
-
-@media (max-width: 768px) {
-    #gato {
-        display: none;
-    }
-}
