@@ -1,0 +1,44 @@
+/* Start Main Section */
+#main {
+    background-image: linear-gradient(to right, #18770fec, #0b410ef1);
+    color: white;
+    min-height: 90vh;
+}
+
+
+/* End Main Section */
+
+
+/* Start Location Section */
+#localization {
+    color: black;
+    min-height: 90vh;
+}
+/* End Location Section */
+
+/* Start Form Section */
+#form {
+    background-image: linear-gradient(to right, #18770fec, #0b410ef1);
+    color: white;
+    min-height: 90vh;
+}
+
+#form form {
+    color: black;
+}
+
+/* End Form Section */
+
+#pre-footer {
+    background-color: #f8f9fa;
+    min-height: 50vh;
+}
+
+#botao {
+    color: white;
+    border-color: white;
+}
+
+#botao:hover {
+    border-color: green;
+}
