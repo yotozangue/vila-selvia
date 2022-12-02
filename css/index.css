@@ -1,0 +1,316 @@
+/* Start Banner Section */
+
+#banner {
+    background-image: linear-gradient(to right, #18770fec, #0b410ef1);
+    color: #fff;
+    padding-top: 5%;
+}
+
+.promo-title {
+    font-size: 10ch;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+#banner a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.bottom-img {
+    width: 100%;
+}
+
+#img-home {
+    width: 100%;
+}
+
+#banner .row {
+    padding-bottom: 10vh;
+}
+
+#banner mark {
+    color: #17770f;
+    background-color: white;
+}
+
+#descer {
+    position: relative;
+    color: white;
+    font-size: 48pt;
+    opacity: 1;
+    animation: jumping 2s linear infinite;
+    cursor: pointer;
+}
+
+#descer .fa {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+}
+
+@keyframes jumping {
+    from, to {
+        transform: translateY(-1vh);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+}
+
+#banner .btn-primary {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: white;
+    bottom: 10%;
+    transition: 0.5s;
+}
+
+#banner .btn-primary:hover {
+    background-color: white;
+    border: 1px solid;
+    border-color: white;
+    bottom: 10%;
+    color: #17770f;
+    transform: scale(110%);
+}
+
+.wrapper * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16pt;
+    font-weight: 600;
+}
+
+.wrapper {
+    display: flex;
+    height: 120px;
+}
+
+.wrapper span {
+    display: block;
+    height: 100%;
+    animation: spin 6s infinite;
+}
+
+@keyframes spin {
+    25% {
+        transform: translateY(-100%);
+    }
+    50% {
+        transform: translateY(-200%);
+    }
+    75% {
+        transform: translateY(-300%);
+    }
+    100% {
+        transform: translateY(-400%);
+    }
+}
+
+.words {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+    #banner h1 {
+        font-size: 32pt;
+    }
+}
+
+/* End Banner Section */
+
+/* Start Services Section */
+
+#services {
+    background-color: white;
+    padding: 10px 0;
+}
+
+.service-img {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.services {
+    padding: 20px;
+}
+
+.services h4 {
+    padding: 5px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+#services .btn-primary {
+    box-sizing: none;
+    padding: 8px 25px;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #17770f, #0b410e);
+}
+/* End Services Section */
+
+/* Start Ranking Section */
+#ranking {
+    background: #f8f9fa;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#ranking h4 {
+    font-size: 24pt;
+    font-weight: 600;
+}
+
+#ranking .progress {
+    margin-top: 12px;
+    max-width: 80%;
+    margin-left: 10%;
+}
+
+#ranking .progress-bar {
+    background-color: #17770f;
+}
+
+.stars * {
+    width: 20px;
+}
+
+.testimonials {
+    margin-top: 10%;
+    margin-left: 12.5%;
+    width: 75%;
+    height: 200px;
+    text-align:left;
+}
+
+.testimonials img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.testimonials .header .stars * {
+    width: 14pt;
+    height: auto;
+}
+
+.testimonials .header p {
+    margin-bottom: 0;
+}
+
+.user-details {
+    size: 12pt;
+}
+
+@media screen and (max-width: 768px) {
+    .testimonials .header {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .testimonials {
+        min-height: 35vh;
+        height: auto;
+    }
+}
+/* End Ranking Section */
+
+/* Start Suites Section */
+#suites {
+    background: rgb(255, 255, 255);
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#suites .carousel, .d-block {
+    height: 100%;
+}
+/* End Suites Section */
+
+/* Start Social Media Section */
+
+#social-media {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+
+#social-media p {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.social-icons img {
+    width: 60px;
+    transform: 0.6s;
+}
+
+.social-icons a:hover img {
+    transform: translateY(-10px);
+}
+
+/* End Social Media Section */
+
+/* Start Footer Section */
+#footer {
+    background-image: linear-gradient(to right, #298121, #194c1b);
+    color: white;
+}
+.footer-img {
+    width: 100%;
+}
+
+.footer-box {
+    padding: 20px;
+}
+
+.footer-box img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.footer-box .fa {
+    margin-right: 8px;
+    font-size: 25px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 2px;
+}
+
+.footer-box .form-control {
+    box-shadow: none !important;
+    border: none;
+    border-radius: 0;
+    margin-top: 25px;
+    max-width: 250px;
+}
+
+#footer .btn-primary {
+    box-shadow: none !important;
+    width: auto;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    margin-top: 30px;
+    background-color:  #298121;
+}
+
+#footer hr {
+    background-color: #fff;
+}
+
+.copyright {
+    margin-bottom: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* End Footer Section */

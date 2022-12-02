@@ -1,0 +1,8 @@
+body {
+    background-image: linear-gradient(to right, #18770fec, #0b410ef1);
+}
+
+#body .active {
+    background-color: green;
+    border-color: green;
+}

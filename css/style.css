@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.container {
+    overflow: hidden;
+}
+
+
+svg#clouds {
+    position: fixed;
+    bottom: -10px;
+    left: -100px;
+    z-index: -10;
+    width: 1920px;
+}
+
+svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+}
