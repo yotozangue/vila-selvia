@@ -1,5 +1,5 @@
 // Set Server URL
-const base_url = 'http://192.168.15.22:9090';
+const base_url = 'http://server.vilaselvia.shop:3080';
 
 function hide(el) {
     document.getElementById(el).style.display = 'none';
