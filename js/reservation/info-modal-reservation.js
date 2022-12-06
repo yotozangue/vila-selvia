@@ -10,7 +10,7 @@ async function modalReservationInfo(id) {
     suite.photos.map(photo => {
         photos.push(`${base_url}/download/${photo}`);
     })
-
+    console.log(suite);
     modalWrap.innerHTML =
     `
     <div class="modal fade" tabindex="-1" id="modal1">
@@ -32,10 +32,22 @@ async function modalReservationInfo(id) {
 
 
                 <h2 class="mt-3">${suite.name} - R$ ${(suite.price.toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'}))}</h2>
-                <p><b>DESCRIÇÃO: </b>${suite.description}</p>
-                <p><b>CÔMODOS: </b>${suite.rooms}</p>
-                <p><b>CAMAS: </b>${suite.beds}</p>
-                <p><b>TAMANHO: </b>${suite.size}m²</p>
+                <div class="row">
+                    <p>${suite.description}</p>
+                    <p class="col-md-5"><b><i class="fa-solid fa-house"></i></b> ${suite.rooms} cômodos</p>
+                    <p class="col-md-5"><b><i class="fa-solid fa-bed"></i></b> ${suite.beds} camas</p>
+                    <p class="col-md-5"><b><i class="fa-sharp fa-solid fa-maximize"></i></b> ${suite.size}m²</p>
+                    <p class="col-md-5"><b><i class="fa-solid fa-person"></i></b> ${suite.maximum_people} pessoas</p>
+                </div>
+
+                <h4>Destaques:</h4>
+                <div class="row">
+                    <p class="col-md-5"><b><i class="fa-solid fa-mug-hot"></i></b> Cozinha</p>
+                    <p class="col-md-5"><b><i class="fa-regular fa-snowflake"></i></i></b> Ar-condicionado</p>
+                    <p class="col-md-5"><b><i class="fa-solid fa-car"></i></b> Estacionamento disponível</p>
+                    <p class="col-md-5"><b><i class="fa-solid fa-wifi"></i></b> Wi-Fi grátis</p>
+                </div>
+
                 <h3>ENDEREÇO: </h3>
                 <p><b>LOGRADOURO: </b> ${suite.address.address}, ${suite.address.number} (${suite.address.city} - ${suite.address.state})</p>
                 <p><b>CEP: </b> ${suite.address.cep}</p>
@@ -73,7 +85,7 @@ async function modalReservation(id) {
     let promises = meals.map(meal => {
         mealInput +=
         `
-            <input type="radio" class="form-check-input" id="reservationMeal" name="reservationMeal" value="${meal._id}">${meal.name} - R$ ${meal.price}<br>
+            <input type="radio" class="form-check-input" id="reservationMeal" name="reservationMeal" value="${meal._id}">${meal.name} - R$ ${(meal.price).toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'})}<br>
         `;
     })
 
@@ -84,7 +96,7 @@ async function modalReservation(id) {
         `
         <input class="form-check-input" type="checkbox" id="reservationAddons" value="${addon._id}">
         <label class="form-check-label" for="reservationAddons">
-          ${addon.name} - R$ ${addon.price}
+          ${addon.name} - R$ ${(addon.price).toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'})}
         </label><br>
         `
     })
@@ -119,7 +131,7 @@ async function modalReservation(id) {
                     <div class="col-md-4">
                         <label for="reservationDtStart">
                             <span class="text-danger">*</span>
-                            Data Início:
+                            Check-in:
                         </label>
 
                         <input type="date" class="form-control" id="reservationDtStart" required}">
@@ -128,7 +140,7 @@ async function modalReservation(id) {
                     <div class="col-md-4">
                         <label for="reservationDtEnd">
                             <span class="text-danger">*</span>
-                            Data Fim:
+                            Check-out:
                         </label>
 
                         <input type="date" class="form-control" id="reservationDtEnd" required}">
@@ -257,13 +269,13 @@ async function calSuite(id) {
         <hr>
         <h3>Resumo</h3>
         <p><b>SUITE: </b>${suite.name} - ${data.number_people} Hóspedes - ${days} diárias</p>
-        <p><b>${meal.name}: </b> ${meal.price} x ${data.number_people} (hóspedes) x ${days} (dias) = R$ ${(meal.price * data.number_people * days)}</p>
+        <p><b>${meal.name}: </b> R$ ${(meal.price).toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'})} x ${data.number_people} (hóspedes) x ${days} (dias) = R$ ${(meal.price * data.number_people * days).toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'})}</p>
     `
     let addonsCont = 0;
     const promises = data.addons.map(async id => {
         const addon = await get('addons', id);
         div.innerHTML +=
-        `<p><b>${addon.name}: </b> ${addon.price} x ${data.number_people} = R$ ${(addon.price * data.number_people)}</p>`
+        `<p><b>${addon.name}: </b> R$ ${(addon.price).toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'})} x ${data.number_people} (hóspedes) = R$ ${(addon.price * data.number_people).toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'})}</p>`
         addonsCont += addon.price * data.number_people;
     })
 

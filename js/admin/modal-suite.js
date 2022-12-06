@@ -100,6 +100,15 @@ async function modalSuite(id) {
 
                         <h3>Endereço </h3>
 
+
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="suiteCep" maxlength="9" placeholder="08466-875" required required value="${suite.address.cep}" onfocusout="verifyCep()">
+                            <label for="suiteCep" class="ps-4">
+                                <span class="text-danger">*</span>
+                                CEP
+                            </label>
+                        </div>
+
                         <div class="form-floating col-md-8">
                             <input type="text" class="form-control" id="suiteLogradouro" placeholder="1234 Main St" required value="${suite.address.address}">
                             <label for="suiteLogradouro" class="ps-4">
@@ -117,7 +126,7 @@ async function modalSuite(id) {
                         </div>
 
                         <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="suiteCidade" placeholder="Alagoas" onkeypress="saveSuite()" required value="${suite.address.city}">
+                            <input type="text" class="form-control" id="suiteCidade" placeholder="Alagoas" required value="${suite.address.city}">
                             <label for="suiteCidade" class="ps-4">
                                 <span class="text-danger">*</span>
                                 Cidade
@@ -136,14 +145,6 @@ async function modalSuite(id) {
                             <label for="suiteEstado" class="ps-4">
                                 <span class="text-danger">*</span>
                                 Estado
-                            </label>
-                        </div>
-
-                        <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="suiteCep" placeholder="08466-875" required required value="${suite.address.cep}">
-                            <label for="suiteCep" class="ps-4">
-                                <span class="text-danger">*</span>
-                                CEP
                             </label>
                         </div>
 
@@ -256,6 +257,14 @@ async function modalSuite(id) {
 
                         <h3>Endereço </h3>
 
+                        <div class="form-floating col-md-4">
+                            <input type="text" class="form-control" id="suiteCep" maxlength="9" placeholder="08466-875" required onfocusout="verifyCep()">
+                            <label for="suiteCep" class="ps-4">
+                                <span class="text-danger">*</span>
+                                CEP
+                            </label>
+                        </div>
+
                         <div class="form-floating col-md-8">
                             <input type="text" class="form-control" id="suiteLogradouro" placeholder="1234 Main St" required>
                             <label for="suiteLogradouro" class="ps-4">
@@ -295,13 +304,7 @@ async function modalSuite(id) {
                             </label>
                         </div>
 
-                        <div class="form-floating col-md-4">
-                            <input type="text" class="form-control" id="suiteCep" placeholder="08466-875" required required>
-                            <label for="suiteCep" class="ps-4">
-                                <span class="text-danger">*</span>
-                                CEP
-                            </label>
-                        </div>
+
 
                     </form>
 
@@ -513,7 +516,7 @@ async function updateSuite2(id) {
         detailed_description: document.querySelector('#suiteDescricaoDatalhada').value,
         avaliations: {
             type: document.querySelector('#suiteDescNota').value,
-            quantity: document.querySelector('#suiteNotaQt').value,
+            quantity: Number.parseInt(document.querySelector('#suiteNotaQt').value),
             rating: document.querySelector('#suiteNota').value
         }
     }
@@ -526,4 +529,21 @@ async function updateSuite2(id) {
     }
 
     pageSuites();
+}
+
+async function verifyCep() {
+
+    const cep = document.getElementById('suiteCep').value;
+    const url = `https://cdn.apicep.com/file/apicep/${cep}.json`;
+
+    axios.get(url)
+    .then(response => {
+        const { address, city, state } = response.data;
+        document.getElementById('suiteLogradouro').value = address; document.getElementById('suiteCidade').value = city;
+        let i = document.getElementById('suiteEstado').selectedIndex;
+        document.getElementById('suiteEstado')[i].value = state;
+    })
+    .catch(error => {
+
+    })
 }

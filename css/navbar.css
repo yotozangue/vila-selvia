@@ -38,6 +38,10 @@
     font-weight: 400;
 }
 
+.navbar-nav .nav-link.active {
+    color: rgb(0, 0, 0);
+}
+
 .fa-bars {
     color: #fff !important;
     font-size: 30px;

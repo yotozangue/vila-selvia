@@ -189,6 +189,52 @@ async function getReservationShow() {
         const reservations = await get('reservation/user/teste');
 
         const promise = reservations.map(async reservation => {
+
+
+            let warn = '';
+            let button = '';
+
+            switch(reservation.status) {
+                case 0:
+                    warn =
+                    `
+                    <span class="ms-1">
+                        <mark style="background-color: #e5a42b;">
+                            Aguardando Pagamento
+                        </mark>
+                    </span>
+                    `
+                    button =
+                    `
+                    <button type="button" onclick="confPagto('${reservation._id}')" class="btn btn-success">Confirmar Pagamento</button>
+                    <button type="button" onclick="cancelReservation('${reservation._id}')" class="btn btn-danger">Cancelar Reserva</button>
+                    `
+                    break;
+                case 2:
+                    warn =
+                    `
+                    <span class="ms-1">
+                        <mark style="background-color: green; color: white;">
+                            Pagamento Confirmado
+                        </mark>
+                    </span>
+                    `
+                    button =
+                    `
+                    <button type="button" onclick="cancelReservation('${reservation._id}')" class="btn btn-danger">Cancelar Reservar</button>
+                    `
+                    break;
+                case 3:
+                    warn =
+                    `
+                    <span class="ms-1">
+                        <mark style="background-color: #bd3f3f; color: white;">
+                            Reserva Cancelada
+                        </mark>
+                    </span>
+                    `
+            }
+
             const suite = await get('suite', reservation.suite_id);
             const photo = `${base_url}/download/${suite.photos[0]}`;
             resposta +=
@@ -196,7 +242,7 @@ async function getReservationShow() {
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${reservation._id}" aria-expanded="true" aria-controls="collapseOne">
-                            R$ ${(reservation.price.toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'}))} - ${suite.name}
+                            R$ ${(reservation.price.toLocaleString('pt-BR', {string: 'currency', currency: 'BRL'}))} - ${suite.name} - ${warn}
                         </button>
                     </h2>
                     <div id="collapse${reservation._id}" class="accordion-collapse collapse">
@@ -206,6 +252,8 @@ async function getReservationShow() {
                             <span>${suite.price}</span>
                             <h2>${user.firstname} ${user.lastname}</h2>
                             <span>${user.email}</span>
+                            <br>
+                            ${button}
                         </div>
                     </div>
                 </div>
@@ -217,4 +265,29 @@ async function getReservationShow() {
         response(resposta);
     });
 
+}
+
+async function confPagto(id) {
+    await get(`reservation/${id}/change/2`)
+    .then(response => {
+        sendToastSuccess('Pagamento Confirmado!')
+        pageReservas();
+    })
+    .catch(error => {
+        console.error(error);
+        sendToastError('Aconteceu algum erro. Entre em contato com o suporte.')
+    })
+}
+
+
+async function cancelReservation(id) {
+    await get(`reservation/${id}/change/3`)
+    .then(response => {
+        sendToastSuccess('Reserva Cancelada.')
+        pageReservas();
+    })
+    .catch(error => {
+        console.error(error);
+        sendToastError('Aconteceu algum erro. Entre em contato com o suporte.')
+    })
 }
