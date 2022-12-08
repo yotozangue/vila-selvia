@@ -1,4 +1,4 @@
-function showModalAdmin () {
+function showModalAdmin() {
 
     const modalWrap = document.createElement('div');
     modalWrap.innerHTML = `
