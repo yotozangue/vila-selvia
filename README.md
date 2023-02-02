@@ -1,6 +1,6 @@
 # Vila Selvia.
 
-<p aling="center">
+<p align="center">
     <a href="#" target="blank">
         <img width="150em" src="./images/logo-demo-green.png"/>
     </a>
