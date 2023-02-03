@@ -46,7 +46,7 @@ Our API is the backbone of our website, providing fast and reliable access to ou
 
 ## Contributors
 
-| [<div><img height="150" src="https://media.licdn.com/dms/image/D4D03AQGTSRv6YV4r1g/profile-displayphoto-shrink_200_200/0/1668475784816?e=1680739200&v=beta&t=LFSgU4dyRdFvZhm5LQKgjuA325h8edMt6wxK45ThLEw"><br><sub>Allan Ferreira de Lima</sub></div>][yotozangue] |
+| [<div><img height="150" src="https://i.imgur.com/OkvHhNx.jpg"><br><sub>Allan Ferreira de Lima</sub></div>][yotozangue] |
 | :---: |
 
 | [<div><img height="150px" src="https://i.imgur.com/0cKiabB.jpg"><br><sub>Erick David da Silva</sub></div>][erickDavi320] |
